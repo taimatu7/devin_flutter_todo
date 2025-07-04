@@ -67,6 +67,36 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _clearCounter() {
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('確認'),
+          content: const Text('本当にカウントをクリアしますか？'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                setState(() {
+                  _counter = 0;
+                });
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -112,10 +142,23 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          FloatingActionButton(
+            onPressed: _clearCounter,
+            tooltip: 'Clear',
+            heroTag: "clear",
+            child: const Icon(Icons.clear),
+          ),
+          const SizedBox(height: 10),
+          FloatingActionButton(
+            onPressed: _incrementCounter,
+            tooltip: 'Increment',
+            heroTag: "increment",
+            child: const Icon(Icons.add),
+          ),
+        ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
