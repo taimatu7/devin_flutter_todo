@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'screens/dashboard_screen.dart';
+import 'screens/activities_screen.dart';
+import 'screens/chat_screen.dart';
+import 'screens/signin_screen.dart';
+import 'screens/checkout_screen.dart';
+import 'screens/booking_screen.dart';
+import 'screens/ecommerce_screen.dart';
+import 'screens/social_feed_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,8 +37,19 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        '/dashboard': (context) => const DashboardScreen(),
+        '/activities': (context) => const ActivitiesScreen(),
+        '/chat': (context) => const ChatScreen(),
+        '/signin': (context) => const SignInScreen(),
+        '/checkout': (context) => const CheckoutScreen(),
+        '/booking': (context) => const BookingScreen(),
+        '/ecommerce': (context) => const EcommerceScreen(),
+        '/social_feed': (context) => const SocialFeedScreen(),
+      },
     );
   }
 }
@@ -75,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _clearCounter() {
+  void _showClearDialog() {
     showDialog<void>(
       context: context,
       barrierDismissible: false,
@@ -107,45 +126,49 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
+      drawer: _buildDrawer(context),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text('You have pushed the button this many times:'),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            const SizedBox(height: 40),
+            const Text(
+              '8つの画面にアクセスするには、左上のメニューボタンをタップしてください',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 16),
+            ),
+            const SizedBox(height: 20),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                ElevatedButton(
+                  onPressed: () => Navigator.pushNamed(context, '/dashboard'),
+                  child: const Text('Dashboard'),
+                ),
+                ElevatedButton(
+                  onPressed: () => Navigator.pushNamed(context, '/ecommerce'),
+                  child: const Text('Ecommerce'),
+                ),
+                ElevatedButton(
+                  onPressed: () => Navigator.pushNamed(context, '/checkout'),
+                  child: const Text('Checkout'),
+                ),
+                ElevatedButton(
+                  onPressed: () => Navigator.pushNamed(context, '/booking'),
+                  child: const Text('Booking'),
+                ),
+              ],
             ),
           ],
         ),
@@ -154,7 +177,7 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton(
-            onPressed: _clearCounter,
+            onPressed: _showClearDialog,
             tooltip: 'Clear',
             heroTag: "clear",
             child: const Icon(Icons.clear),
@@ -174,7 +197,100 @@ class _MyHomePageState extends State<MyHomePage> {
             child: const Icon(Icons.add),
           ),
         ],
-      ),// This trailing comma makes auto-formatting nicer for build methods.
+      ),
+    );
+  }
+
+  Widget _buildDrawer(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          const DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.deepPurple,
+            ),
+            child: Text(
+              'Figma Screens',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+              ),
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.home),
+            title: const Text('Home (Counter)'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.dashboard),
+            title: const Text('Dashboard'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/dashboard');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.local_activity),
+            title: const Text('Activities'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/activities');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.chat),
+            title: const Text('Chat'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/chat');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.login),
+            title: const Text('Sign In'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/signin');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.shopping_cart),
+            title: const Text('Checkout'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/checkout');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.book_online),
+            title: const Text('Booking'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/booking');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.store),
+            title: const Text('Ecommerce'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/ecommerce');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.feed),
+            title: const Text('Social Feed'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/social_feed');
+            },
+          ),
+        ],
+      ),
     );
   }
 }
