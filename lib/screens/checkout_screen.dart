@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../design_constants.dart';
 
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({super.key});
@@ -79,6 +80,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   Widget _buildShippingSection() {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+      ),
+      color: FigmaColors.white,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -102,6 +107,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   Widget _buildDeliverySection() {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+      ),
+      color: FigmaColors.white,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -124,6 +133,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   Widget _buildPaymentSection() {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+      ),
+      color: FigmaColors.white,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -150,6 +163,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   Widget _buildItemsSection() {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+      ),
+      color: FigmaColors.white,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -171,8 +188,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     width: 60,
                     height: 60,
                     decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(8),
+                      color: FigmaColors.lightGray,
+                      borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
                     ),
                     child: const Icon(Icons.image),
                   ),
@@ -204,6 +221,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     final total = subtotal + shippingTotal + taxes;
 
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+      ),
+      color: FigmaColors.white,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

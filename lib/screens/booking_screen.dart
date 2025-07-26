@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../design_constants.dart';
 
 class BookingScreen extends StatefulWidget {
   const BookingScreen({super.key});
@@ -49,8 +50,11 @@ class _BookingScreenState extends State<BookingScreen> {
               child: ElevatedButton(
                 onPressed: _bookService,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  foregroundColor: Colors.white,
+                  backgroundColor: FigmaColors.black,
+                  foregroundColor: FigmaColors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+                  ),
                 ),
                 child: const Text('予約する', style: TextStyle(fontSize: 18)),
               ),
@@ -77,6 +81,10 @@ class _BookingScreenState extends State<BookingScreen> {
 
   Widget _buildLocationSection() {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+      ),
+      color: FigmaColors.white,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -93,8 +101,8 @@ class _BookingScreenState extends State<BookingScreen> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(16),
+                    color: FigmaColors.lightGray,
+                    borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
                   ),
                   child: const Text('\$123'),
                 ),
@@ -105,11 +113,11 @@ class _BookingScreenState extends State<BookingScreen> {
               height: 120,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: BorderRadius.circular(8),
+                color: FigmaColors.lightGray,
+                borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
               ),
               child: const Center(
-                child: Icon(Icons.image, size: 40, color: Colors.grey),
+                child: Icon(Icons.image, size: 40, color: FigmaColors.mediumGray),
               ),
             ),
           ],
@@ -120,6 +128,10 @@ class _BookingScreenState extends State<BookingScreen> {
 
   Widget _buildServiceSelection() {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+      ),
+      color: FigmaColors.white,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -145,6 +157,10 @@ class _BookingScreenState extends State<BookingScreen> {
 
   Widget _buildDateTimeSelection() {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+      ),
+      color: FigmaColors.white,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -183,6 +199,10 @@ class _BookingScreenState extends State<BookingScreen> {
 
   Widget _buildCustomerInfo() {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+      ),
+      color: FigmaColors.white,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -217,6 +237,10 @@ class _BookingScreenState extends State<BookingScreen> {
                      _selectedService == 'プレミアム' ? 8000 : 12000;
     
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+      ),
+      color: FigmaColors.white,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../design_constants.dart';
 
 class SocialFeedScreen extends StatefulWidget {
   const SocialFeedScreen({super.key});
@@ -95,6 +96,10 @@ class _SocialFeedScreenState extends State<SocialFeedScreen> {
   Widget _buildPostCard(Map<String, dynamic> post) {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+      ),
+      color: FigmaColors.white,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -104,8 +109,8 @@ class _SocialFeedScreenState extends State<SocialFeedScreen> {
               children: [
                 CircleAvatar(
                   radius: 20,
-                  backgroundColor: Colors.grey[300],
-                  child: const Icon(Icons.person, color: Colors.grey),
+                  backgroundColor: FigmaColors.lightGray,
+                  child: Icon(Icons.person, color: FigmaColors.mediumGray),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -137,11 +142,11 @@ class _SocialFeedScreenState extends State<SocialFeedScreen> {
                 height: 200,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.grey[300],
-                  borderRadius: BorderRadius.circular(8),
+                  color: FigmaColors.lightGray,
+                  borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
                 ),
-                child: const Center(
-                  child: Icon(Icons.image, size: 40, color: Colors.grey),
+                child: Center(
+                  child: Icon(Icons.image, size: 40, color: FigmaColors.mediumGray),
                 ),
               ),
             ],

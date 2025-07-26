@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../design_constants.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -36,10 +37,12 @@ class _SignInScreenState extends State<SignInScreen> {
                 children: [
                   TextFormField(
                     controller: _emailController,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'メールアドレス',
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.email),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+                      ),
+                      prefixIcon: const Icon(Icons.email),
                     ),
                     keyboardType: TextInputType.emailAddress,
                     validator: (value) {
@@ -57,7 +60,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     controller: _passwordController,
                     decoration: InputDecoration(
                       labelText: 'パスワード',
-                      border: const OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+                      ),
                       prefixIcon: const Icon(Icons.lock),
                       suffixIcon: IconButton(
                         icon: Icon(_obscurePassword ? Icons.visibility : Icons.visibility_off),
@@ -85,6 +90,13 @@ class _SignInScreenState extends State<SignInScreen> {
                     height: 50,
                     child: ElevatedButton(
                       onPressed: _signIn,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: FigmaColors.black,
+                        foregroundColor: FigmaColors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+                        ),
+                      ),
                       child: const Text('サインイン', style: TextStyle(fontSize: 18)),
                     ),
                   ),

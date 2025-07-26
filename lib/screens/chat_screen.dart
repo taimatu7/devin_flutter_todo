@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../design_constants.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -78,8 +79,8 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             decoration: BoxDecoration(
-              color: isMe ? Theme.of(context).primaryColor : Colors.grey[300],
-              borderRadius: BorderRadius.circular(20),
+              color: isMe ? FigmaColors.lightGray : FigmaColors.white,
+              borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,8 +111,8 @@ class _ChatScreenState extends State<ChatScreen> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.grey[100],
-        border: Border(top: BorderSide(color: Colors.grey[300]!)),
+        color: FigmaColors.lightGray,
+        border: Border(top: BorderSide(color: FigmaColors.mediumGray)),
       ),
       child: Row(
         children: [

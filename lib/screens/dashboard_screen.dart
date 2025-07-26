@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../design_constants.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -61,6 +62,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget _buildDashboardCard(String title, String value, IconData icon, Color color) {
     return Card(
       elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+      ),
+      color: FigmaColors.white,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

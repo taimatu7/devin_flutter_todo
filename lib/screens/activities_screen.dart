@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../design_constants.dart';
 
 class ActivitiesScreen extends StatefulWidget {
   const ActivitiesScreen({super.key});
@@ -40,6 +41,10 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
                   final activity = activities[index];
                   return Card(
                     margin: const EdgeInsets.only(bottom: 12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+                    ),
+                    color: FigmaColors.white,
                     child: ListTile(
                       leading: CircleAvatar(
                         backgroundColor: Theme.of(context).primaryColor,

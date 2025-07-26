@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../design_constants.dart';
 
 class EcommerceScreen extends StatefulWidget {
   const EcommerceScreen({super.key});
@@ -93,11 +94,11 @@ class _EcommerceScreenState extends State<EcommerceScreen> {
           hintText: 'Search',
           prefixIcon: const Icon(Icons.search),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: BorderRadius.circular(FigmaBorderRadius.medium),
             borderSide: BorderSide.none,
           ),
           filled: true,
-          fillColor: Colors.grey[200],
+          fillColor: FigmaColors.lightGray,
         ),
       ),
     );
@@ -228,6 +229,10 @@ class _EcommerceScreenState extends State<EcommerceScreen> {
             margin: const EdgeInsets.only(right: 12),
             child: Card(
               elevation: 2,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+              ),
+              color: FigmaColors.white,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -235,10 +240,10 @@ class _EcommerceScreenState extends State<EcommerceScreen> {
                     child: Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
+                        color: FigmaColors.lightGray,
+                        borderRadius: BorderRadius.vertical(top: Radius.circular(FigmaBorderRadius.small)),
                       ),
-                      child: const Icon(Icons.image, size: 40, color: Colors.grey),
+                      child: Icon(Icons.image, size: 40, color: FigmaColors.mediumGray),
                     ),
                   ),
                   Padding(
