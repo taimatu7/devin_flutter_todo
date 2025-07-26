@@ -26,6 +26,27 @@ class _SignInScreenState extends State<SignInScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Container(
+              width: 120,
+              height: 120,
+              margin: const EdgeInsets.only(bottom: 32),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(FigmaBorderRadius.large),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(FigmaBorderRadius.large),
+                child: Image.asset(
+                  'assets/images/background_2.png',
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      color: FigmaColors.lightGray,
+                      child: const Icon(Icons.login, size: 60, color: FigmaColors.mediumGray),
+                    );
+                  },
+                ),
+              ),
+            ),
             const Text(
               'サインイン',
               style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),

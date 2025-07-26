@@ -46,9 +46,25 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
                     ),
                     color: FigmaColors.white,
                     child: ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Theme.of(context).primaryColor,
-                        child: Icon(activity['icon'], color: Colors.white),
+                      leading: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(FigmaBorderRadius.large),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(FigmaBorderRadius.large),
+                          child: Image.asset(
+                            'assets/images/profile_${(index % 2) + 1}.png',
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) {
+                              return CircleAvatar(
+                                backgroundColor: Theme.of(context).primaryColor,
+                                child: Icon(activity['icon'], color: Colors.white),
+                              );
+                            },
+                          ),
+                        ),
                       ),
                       title: Text(activity['title']),
                       subtitle: Text(activity['subtitle']),

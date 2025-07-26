@@ -107,10 +107,26 @@ class _SocialFeedScreenState extends State<SocialFeedScreen> {
           children: [
             Row(
               children: [
-                CircleAvatar(
-                  radius: 20,
-                  backgroundColor: FigmaColors.lightGray,
-                  child: Icon(Icons.person, color: FigmaColors.mediumGray),
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(FigmaBorderRadius.large),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(FigmaBorderRadius.large),
+                    child: Image.asset(
+                      'assets/images/profile_${(posts.indexOf(post) % 2) + 1}.png',
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return CircleAvatar(
+                          radius: 20,
+                          backgroundColor: FigmaColors.lightGray,
+                          child: Icon(Icons.person, color: FigmaColors.mediumGray),
+                        );
+                      },
+                    ),
+                  ),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -145,8 +161,17 @@ class _SocialFeedScreenState extends State<SocialFeedScreen> {
                   color: FigmaColors.lightGray,
                   borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
                 ),
-                child: Center(
-                  child: Icon(Icons.image, size: 40, color: FigmaColors.mediumGray),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+                  child: Image.asset(
+                    'assets/images/product_${(posts.indexOf(post) % 4) + 1}.png',
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Center(
+                        child: Icon(Icons.image, size: 40, color: FigmaColors.mediumGray),
+                      );
+                    },
+                  ),
                 ),
               ),
             ],

@@ -176,10 +176,24 @@ class _EcommerceScreenState extends State<EcommerceScreen> {
               width: 80,
               height: 80,
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.3),
                 borderRadius: BorderRadius.circular(40),
               ),
-              child: const Icon(Icons.image, size: 40, color: Colors.white),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(40),
+                child: Image.asset(
+                  'assets/images/banner_image.png',
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      child: const Icon(Icons.image, size: 40, color: Colors.white),
+                    );
+                  },
+                ),
+              ),
             ),
           ),
         ],
@@ -243,7 +257,16 @@ class _EcommerceScreenState extends State<EcommerceScreen> {
                         color: FigmaColors.lightGray,
                         borderRadius: BorderRadius.vertical(top: Radius.circular(FigmaBorderRadius.small)),
                       ),
-                      child: Icon(Icons.image, size: 40, color: FigmaColors.mediumGray),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.vertical(top: Radius.circular(FigmaBorderRadius.small)),
+                        child: Image.asset(
+                          'assets/images/product_${(index % 4) + 1}.png',
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Icon(Icons.image, size: 40, color: FigmaColors.mediumGray);
+                          },
+                        ),
+                      ),
                     ),
                   ),
                   Padding(

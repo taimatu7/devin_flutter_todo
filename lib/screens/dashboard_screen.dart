@@ -71,7 +71,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 40, color: color),
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+                child: Image.asset(
+                  'assets/images/background_1.png',
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Icon(icon, size: 40, color: color);
+                  },
+                ),
+              ),
+            ),
             const SizedBox(height: 8),
             Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             const SizedBox(height: 4),

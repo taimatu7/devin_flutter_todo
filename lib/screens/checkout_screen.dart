@@ -188,10 +188,21 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     width: 60,
                     height: 60,
                     decoration: BoxDecoration(
-                      color: FigmaColors.lightGray,
                       borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
                     ),
-                    child: const Icon(Icons.image),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+                      child: Image.asset(
+                        'assets/images/product_${(cartItems.indexOf(item) % 4) + 1}.png',
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Container(
+                            color: FigmaColors.lightGray,
+                            child: const Icon(Icons.image),
+                          );
+                        },
+                      ),
+                    ),
                   ),
                   const SizedBox(width: 12),
                   Expanded(

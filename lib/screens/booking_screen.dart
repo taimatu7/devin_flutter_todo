@@ -113,11 +113,22 @@ class _BookingScreenState extends State<BookingScreen> {
               height: 120,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: FigmaColors.lightGray,
                 borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
               ),
-              child: const Center(
-                child: Icon(Icons.image, size: 40, color: FigmaColors.mediumGray),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(FigmaBorderRadius.small),
+                child: Image.asset(
+                  'assets/images/service_image.png',
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      color: FigmaColors.lightGray,
+                      child: const Center(
+                        child: Icon(Icons.image, size: 40, color: FigmaColors.mediumGray),
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
           ],

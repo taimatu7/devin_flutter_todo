@@ -73,6 +73,29 @@ class _ChatScreenState extends State<ChatScreen> {
       child: Row(
         mainAxisAlignment: isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
         children: [
+          if (!isMe) ...[
+            Container(
+              width: 32,
+              height: 32,
+              margin: const EdgeInsets.only(right: 8),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(FigmaBorderRadius.medium),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(FigmaBorderRadius.medium),
+                child: Image.asset(
+                  'assets/images/profile_1.png',
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      color: FigmaColors.lightGray,
+                      child: const Icon(Icons.person, size: 16, color: FigmaColors.mediumGray),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ],
           Container(
             constraints: BoxConstraints(
               maxWidth: MediaQuery.of(context).size.width * 0.7,
