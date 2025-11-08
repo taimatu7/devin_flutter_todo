@@ -6,6 +6,13 @@ Welcome to the Flutter Counter App documentation! This directory contains compre
 
 ### Core Documentation
 
+- **[QUICK_START.md](QUICK_START.md)** - Quick start guide
+  - 5-minute setup
+  - Basic usage
+  - Platform-specific commands
+  - Troubleshooting
+  - Customization tips
+
 - **[API.md](API.md)** - Detailed API documentation
   - Class references
   - Method signatures
@@ -21,6 +28,12 @@ Welcome to the Flutter Counter App documentation! This directory contains compre
   - State management explanation
   - Performance considerations
   - Future scalability plans
+
+- **[FAQ.md](FAQ.md)** - Frequently Asked Questions
+  - Common questions and answers
+  - Troubleshooting tips
+  - How-to guides
+  - Platform-specific issues
 
 ### Project Documentation
 
@@ -57,6 +70,7 @@ Welcome to the Flutter Counter App documentation! This directory contains compre
 
 ### For Users
 
+- [Quick Start Guide](QUICK_START.md) - Start here!
 - [Installation Guide](../README.md#-セットアップ手順)
 - [Features Overview](../README.md#-主な機能)
 - [Platform Support](../README.md#-対応プラットフォーム)
